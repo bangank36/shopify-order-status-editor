@@ -1,9 +1,9 @@
 {
-  "name": "shopify-order-wizard",
+  "name": "shopify-order-status-editor",
   "private": false,
-  "description": "Quickly and easily create test Shopify orders",
+  "description": "Edit Shopify post order status injection",
   "version": "0.1.0",
-  "author": "Gil Greenberg <gil.greenberg@gmail.com>",
+  "author": "bangank36 <bangank36@gmail.com>",
   "dependencies": {
     "@shopify/admin-graphql-api-utilities": "^0.0.7",
     "@shopify/polaris": "^3.15.0",
