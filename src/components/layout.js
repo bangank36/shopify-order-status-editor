@@ -30,11 +30,11 @@ const Layout = ({ children }) => (
             {children}
             <FooterHelp>
               Built by <Button 
-                url="http://www.gilgreenberg.com"
+                url="https://github.com/bangank36"
                 plain
                 external
-              >Gil Greenberg</Button>{" "}
-              w/ 🍦💖
+              >bangank36</Button>{" "}
+              w/ ❤️‍🔥
             </FooterHelp>
           </>
         </AppProvider>

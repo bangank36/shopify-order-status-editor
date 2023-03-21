@@ -25,7 +25,8 @@
     "react": "^16.8.4",
     "react-apollo": "^2.5.5",
     "react-dom": "^16.8.4",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "yarn-audit-fix": "^9.3.9"
   },
   "keywords": [
     "gatsby"

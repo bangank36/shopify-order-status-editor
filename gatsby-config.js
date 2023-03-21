@@ -2,7 +2,7 @@ var proxy = require("http-proxy-middleware");
 
 module.exports = {
   siteMetadata: {
-    title: `Shopify Order Wizard`,
+    title: `Shopify Post Order Injection`,
     description: `Quickly create Shopify orders for testing purposes.`,
     author: `@gil--`
   },

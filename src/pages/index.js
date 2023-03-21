@@ -208,13 +208,13 @@ class IndexPage extends React.Component {
     return (
       <PageLayout>
           <Page
-            title="Shopify Order Wizard"
+            title="Shopify Post Order Injection"
             secondaryActions={[
               {
                 content: "View Source Code",
                 external: true,
                 icon: "external",
-                url: "https://github.com/gil--/shopify-order-wizard",
+                url: "https://github.com/bangank36/shopify-order-status-editor",
               },
             ]}
           >
@@ -222,7 +222,7 @@ class IndexPage extends React.Component {
             <Layout>
               <Layout.Section>
                 <DisplayText size="small">
-                  Easily create test orders on your Shopify store.
+                  Preview your code injection for Shopify post order status page without Shopify Plus ( $2000/month )
                 </DisplayText>
               </Layout.Section>
               <Layout.Section>
