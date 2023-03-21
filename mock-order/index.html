@@ -1,0 +1,108 @@
+<script type="text/template">
+{% capture mock_order %}
+{
+    "attributes": {},
+    "billing_address": {},
+    "cancel_reason": null,
+    "cancel_reason_label": null,
+    "cancelled": false,
+    "cancelled_at": null,
+    "cart_level_discount_applications": [],
+    "created_at": "2022-04-29 11:15:46 -0400",
+    "customer": {},
+    "customer_order_url": "https://shopify.com/56174706753/account/orders/4295688749121?locale=en",
+    "customer_url": "https://polinas-potent-potions.myshopify.com/account/orders/8be02e56c658bcd1f034d28c496fddd9",
+    "discount_applications": [],
+    "discounts": null,
+    "email": "cornelius.potionmaker@gmail.com",
+    "financial_status": "paid",
+    "financial_status_label": "Paid",
+    "fulfillment_status": "partial",
+    "fulfillment_status_label": "Partial",
+    "id": 4295688749121,
+    "item_count": 6,
+    "line_items": [],
+    "line_items_subtotal_price": "492.93",
+    "metafields": {},
+    "name": "#1001",
+    "note": null,
+    "order_number": 1001,
+    "order_status_url": "https://polinas-potent-potions.myshopify.com/56174706753/orders/8be02e56c658bcd1f034d28c496fddd9/authenticate?key=4f9baf2b8ebd0f75ec73eb9bac6e4519",
+    "phone": null,
+    "shipping_address": {},
+    "shipping_methods": [],
+    "shipping_price": "0.00",
+    "subtotal_line_items": [],
+    "subtotal_price": "492.93",
+    "tags": [],
+    "tax_lines": [],
+    "tax_price": "0.00",
+    "total_discounts": "0.00",
+    "total_duties": null,
+    "total_net_amount": "492.93",
+    "total_price": "492.93",
+    "total_refunded_amount": "0.00",
+    "transactions": []
+  }
+{% endcapture %}
+
+{% assign order = mock_order | jsonToObject %}
+
+<pre>
+    <script>
+        // DEBUG {{ checkout.shipping_method.title }} has been used
+        {% if order.financial_status == 'paid' %}
+          Shopify.Checkout.OrderStatus.addContentBox(
+            `<p>Okay, we're ready for you to collect your products from 17 Mapple Crescent, Toronto. Our store is open 9:00 to 5:00 every day.</p>`
+          )
+        {% endif %}
+      </script>
+</pre>
+
+</script>
+<div id="result"></div>
+<script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.umd.js"></script>
+
+<div>
+    <div>
+        <h5 class="card-title px-3">Try this code</h5> 
+        <textarea id="editor"> 
+            {% assign myvariable = "tomato" %} 
+            {{ myvariable | upcase }} 
+        </textarea> 
+        <a href="#" class="btn btn-primary mt-2 float-end mx-3" id="get_result"> Set Result<i class="fa-duotone fa-play"></i> </a> 
+    </div> 
+</div> 
+<div class="card"> 
+    <div id="right-panel" class="card-body bg-light border-secondary"> 
+        <h5 class="card-title">Output</h5> <span id="loading"></span> 
+        <textarea class="form-control textarea-height" readonly id="set_result"> </textarea> 
+    </div> 
+</div> 
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/lucario.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/codemirror.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/django/django.js"></script>
+<script type="text/javascript" src="./codemirrorinstall.min.js" defer></script>
+
+
+<script>
+const template = document.querySelector('[type="text/template"]')
+const result = document.querySelector('#result')
+const engine = new liquidjs.Liquid()
+
+// register new Filter
+engine.registerFilter("jsonToObject", (json) => JSON.parse(json));
+
+engine
+    .parseAndRender(template.innerHTML, {name: 'liquid'})
+    .then(html => result.innerHTML = html)
+
+// Set value for editor textarea
+$('#editor').val(template.innerHTML);
+</script>
