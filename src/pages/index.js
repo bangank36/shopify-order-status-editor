@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {
   Banner,
   Button,
+  ButtonGroup,
   Card,
   Checkbox,
   Collapsible,
@@ -19,7 +20,6 @@ import {
   Select,
   Subheading,
 } from "@shopify/polaris";
-import faker from "faker";
 import { Liquid } from 'liquidjs';
 
 import PageLayout from "../components/layout";
@@ -54,8 +54,8 @@ function IndexPage () {
   const handleCodeChange = (newCode) => {
     setLiquidCode(newCode);
     try {
-      const newCodeWithMock = setMockData(newCode);
-      const compiledTemplate = engine.parse(newCodeWithMock);
+      const mockedCode = setMockData(newCode);
+      const compiledTemplate = engine.parse(mockedCode);
       const renderedTemplate = engine.renderSync(compiledTemplate);
       setParsedLiquidCode(renderedTemplate);
     } catch (e) {
@@ -75,7 +75,6 @@ function IndexPage () {
               },
             ]}
           >
-
             <Layout>
               <Layout.Section>
                 <DisplayText size="small">
@@ -87,14 +86,15 @@ function IndexPage () {
                   <Stack distribution="fill">
                     <Editor code={liquidCode} onEdit={handleCodeChange}/>
                   </Stack>
-                  <Stack distribution="fill">
-                    <Button>
-                      <Subheading>Copy Code</Subheading>
-                    </Button>
-                    <Button>
-                      <Subheading>Preview Code</Subheading>
-                    </Button>
-                  </Stack>
+                  <Stack distribution="leading">
+                    <ButtonGroup>
+                      <Button icon={ null } onClick={ () => {} }>Reset</Button>
+                      <Button icon={ null } 
+                          onClick={() => {} }>
+                              Copy to Clipboard
+                      </Button>
+                    </ButtonGroup>
+                </Stack>
                   <Stack distribution="fill">
                   <Editor code={parsedLiquidCode} onEdit={()=>{}}/>
                   </Stack>
