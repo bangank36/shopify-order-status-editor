@@ -1,3 +1,9 @@
+/*
+    Liquid: 
+    {%  assign orderAttr = 'attributes,billing_address,cancel_reason,cancel_reason_label,cancelled,cancelled_at,cart_level_discount_applications,created_at,customer,customer_order_url,customer_url,discount_applications,discounts,email,financial_status,financial_status_label,fulfillment_status,fulfillment_status_label,id,item_count,line_items,line_items_subtotal_price,metafields,name,note,order_number,order_status_url,phone,shipping_address,shipping_methods,shipping_price,subtotal_line_items,subtotal_price,tags,tax_lines,tax_price,total_discounts,total_duties,total_net_amount,total_price,total_refunded_amount,transactions' %}
+    {% assign orderObject = orderAttr | split: "," %}
+*/
+
 export default {
     "attributes": {},
     "billing_address": {
