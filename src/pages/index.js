@@ -24,7 +24,11 @@ import { Liquid } from 'liquidjs';
 
 import PageLayout from "../components/layout";
 import Editor from "../components/code";
+
 import MockOrder from "../mock/order";
+import MockShop from "../mock/shop";
+import MockCheckout from "../mock/checkout";
+import MockVariables from "../mock/variables";
 
 function IndexPage () {
   const [liquidCode, setLiquidCode] = React.useState(
@@ -44,8 +48,21 @@ function IndexPage () {
     {% capture mock_order %}
     ${ JSON.stringify(MockOrder) }
     {% endcapture %}
-    
     {% assign order = mock_order | jsonToObject %}
+
+    {% capture mock_shop %}
+    ${ JSON.stringify(MockShop) }
+    {% endcapture %}
+    {% assign shop = mock_shop | jsonToObject %}
+
+    {% capture mock_checkout %}
+    ${ JSON.stringify(MockCheckout) }
+    {% endcapture %}
+    {% assign checkout = mock_checkout | jsonToObject %}
+
+    ${ Object.keys(MockVariables).map((key) => {
+      return `{% assign ${key} = '${MockVariables[key]}' %}`
+    }).join(' ') }
     `;
 
     return `${mockTemplate}${liquidCode}`;
