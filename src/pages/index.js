@@ -4,9 +4,10 @@ import {
   Button,
   ButtonGroup,
   Card,
+  Divider,
   Checkbox,
   Collapsible,
-  DisplayText,
+  Text,
   Heading,
   List,
   FormLayout,
@@ -92,32 +93,7 @@ function IndexPage () {
               },
             ]}
           >
-            <Layout>
-              <Layout.Section>
-                <DisplayText size="small">
-                  Preview your code injection for Shopify post order status page without Shopify Plus ( $2000/month )
-                </DisplayText>
-              </Layout.Section>
-              <Layout.Section>
-                <Card sectioned title="Liquid Editor">
-                  <Stack distribution="fill">
-                    <Editor code={liquidCode} onEdit={handleCodeChange}/>
-                  </Stack>
-                  <Stack distribution="leading">
-                    <ButtonGroup>
-                      <Button icon={ null } onClick={ () => {} }>Reset</Button>
-                      <Button icon={ null } 
-                          onClick={() => {} }>
-                              Copy to Clipboard
-                      </Button>
-                    </ButtonGroup>
-                </Stack>
-                  <Stack distribution="fill">
-                  <Editor code={parsedLiquidCode} onEdit={()=>{}}/>
-                  </Stack>
-                </Card>
-              </Layout.Section>
-            </Layout>
+            
           </Page>
         </PageLayout>
     );

@@ -6,7 +6,7 @@
   "author": "bangank36 <bangank36@gmail.com>",
   "dependencies": {
     "@shopify/admin-graphql-api-utilities": "^0.0.7",
-    "@shopify/polaris": "^3.15.0",
+    "@shopify/polaris": "^10.38.0",
     "apollo-cache-inmemory": "^1.5.1",
     "apollo-client": "^2.5.1",
     "apollo-link": "^1.2.11",
