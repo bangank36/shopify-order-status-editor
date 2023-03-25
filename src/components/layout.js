@@ -10,6 +10,8 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import { AppProvider, Button, FooterHelp } from "@shopify/polaris";
 
+import "@shopify/polaris/build/esm/styles.css";
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`

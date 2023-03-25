@@ -21,6 +21,7 @@ import {
   Select,
   Subheading,
 } from "@shopify/polaris";
+import {ExternalMinor} from '@shopify/polaris-icons';
 import { Liquid } from 'liquidjs';
 
 import PageLayout from "../components/layout";
@@ -88,12 +89,44 @@ function IndexPage () {
               {
                 content: "View Source Code",
                 external: true,
-                icon: "external",
+                icon: ExternalMinor,
                 url: "https://github.com/bangank36/shopify-order-status-editor",
               },
             ]}
           >
-            
+            <Layout>
+              <Layout.Section>
+                <Text size="small">
+                  Preview your code injection for Shopify post order status page without Shopify Plus ( $2000/month )
+                </Text>
+              </Layout.Section>
+            </Layout>
+            <Divider borderStyle="transparent" />
+            <Layout>
+              <Layout.Section>
+                <Card title="Liquid Editor" sectioned>
+                  <Stack distribution="fill">
+                    <Editor code={liquidCode} onEdit={handleCodeChange}/>
+                  </Stack>
+                </Card>
+              </Layout.Section>
+              <Layout.Section secondary>
+                <Card sectioned title="Parsed Liquid">
+                  <Stack distribution="leading">
+                    <ButtonGroup>
+                      <Button onClick={ () => {} }>Reset</Button>
+                      <Button  
+                          onClick={() => {} }>
+                              Copy to Clipboard
+                      </Button>
+                    </ButtonGroup>
+                  </Stack>
+                  <Stack distribution="fill">
+                  <Editor code={parsedLiquidCode} onEdit={()=>{}}/>
+                  </Stack>
+                </Card>
+              </Layout.Section>
+            </Layout>
           </Page>
         </PageLayout>
     );
